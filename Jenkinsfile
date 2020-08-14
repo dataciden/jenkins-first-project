@@ -1,10 +1,11 @@
 pipeline {
-    agent { label 'master' }
+    agent { docker { image 'python:alpine' } }
     stages {
-        stage('build') {
+        stage('run') {
             steps {
-                echo ' Jason Bro Its time to Reinvent Yourself'
-		sh 'echo Integrating Jenkins Pipeline with GitHub Webhook using Jenkinsfile'
+                echo 'Hey Jason Time to Reinvent Yourself'
+                sh 'python3 --version'
+                sh 'python3 pipeline.py'
             }
         }
     }
